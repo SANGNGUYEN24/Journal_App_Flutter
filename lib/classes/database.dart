@@ -37,16 +37,6 @@ class DatabaseFileRoutines {
     // Write the file
     return file.writeAsString('$json');
   }
-
-  Database databaseFromJson(String str) {
-    final dataFromJson = json.decode(str);
-    return Database.fromJson(dataFromJson);
-  }
-
-  String databaseToJson(Database data) {
-    final dataToJson = data.toJson();
-    return json.encode(dataToJson);
-  }
 }
 
 class Database {
@@ -87,25 +77,34 @@ class Journal {
       note: json["note"]);
 
   // Convert the Journal class to a JSON object
-  Map<String, dynamic> toJson()=>{
-    "id": id,
-    "date": date,
-    "mood": mood,
-    "note": note,
-  };
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "date": date,
+        "mood": mood,
+        "note": note,
+      };
 }
 
 // Responsible for passing the action and a journal entry between pages
-class JournalEdit{
+class JournalEdit {
   // Passes an action to 'Save' or 'Cancel', editing an  entry
   late String action;
 
   // Passes the journal entry values
   late Journal journal;
+
   JournalEdit({
     required this.action,
     required this.journal,
-});
+  });
+}
 
+Database databaseFromJson(String str) {
+  final dataFromJson = json.decode(str);
+  return Database.fromJson(dataFromJson);
+}
 
+String databaseToJson(Database data) {
+  final dataToJson = data.toJson();
+  return json.encode(dataToJson);
 }
