@@ -59,7 +59,7 @@ class _HomeState extends State<Home> {
     }
   }
 
-  Widget _buildListViewSeperated(AsyncSnapshot snapshot) {
+  Widget _buildListViewSeparated(AsyncSnapshot snapshot) {
     return ListView.separated(
       itemCount: snapshot.data.length,
       itemBuilder: (BuildContext context, int index) {
@@ -149,7 +149,7 @@ class _HomeState extends State<Home> {
               ? Center(
                   child: CircularProgressIndicator(),
                 )
-              : _buildListViewSeperated(snapshot);
+              : _buildListViewSeparated(snapshot);
         },
       ),
       bottomNavigationBar: BottomAppBar(
