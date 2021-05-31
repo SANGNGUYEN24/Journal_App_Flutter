@@ -138,8 +138,33 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Welcome'),
+        title: Text('Your journals', style: TextStyle(color: Colors.lightBlue.shade800),),
+        elevation: 0.0,
         centerTitle: true,
+        bottom: PreferredSize(
+          child: Container(),
+          preferredSize: Size.fromHeight(20.0),
+        ),
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.lightBlue, Colors.grey.shade50],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            )
+          ),
+        ),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(
+              Icons.exit_to_app,
+              color: Colors.lightBlue.shade800,
+            ),
+            onPressed: (){
+              // TODO: Add signOut method
+            },
+          )
+        ],
       ),
       body: FutureBuilder(
         initialData: [], // empty list
@@ -153,6 +178,7 @@ class _HomeState extends State<Home> {
         },
       ),
       bottomNavigationBar: BottomAppBar(
+        elevation: 0.0,
         shape: CircularNotchedRectangle(),
         child: Padding(
           padding: const EdgeInsets.all(24.0),

@@ -12,6 +12,8 @@ class MyApp extends StatelessWidget {
       title: 'Local Persistence',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        canvasColor: Colors.grey.shade50,
+        bottomAppBarColor: Colors.grey.shade50,
       ),
       home: Home(),
     );
